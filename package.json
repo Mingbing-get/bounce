@@ -1,6 +1,6 @@
 {
   "name": "bounce-animation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "一个流式的css动画库",
   "main": "./index.umd.js",
   "module": "./index.esm.js",
@@ -20,5 +20,8 @@
     "sass": "^1.69.5",
     "vite": "^4.5.0",
     "vite-plugin-dts": "^3.6.3"
+  },
+  "repository": {
+    "url": "https://github.com/Mingbing-get/bounce"
   }
 }
