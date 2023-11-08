@@ -2,7 +2,7 @@ import { BounceQuerySelectorOption } from './type'
 import { sleep, isFunction, addStyle, removeStyle } from '../utils'
 
 export default async function BounceQuerySelector(selector: string, option: BounceQuerySelectorOption) {
-  const { animations, delay } = option
+  const { animations, delay, keepLastAnimation } = option
 
   if (delay) {
     await sleep(delay)
@@ -26,7 +26,9 @@ export default async function BounceQuerySelector(selector: string, option: Boun
           await sleep(animation.duration)
         }
 
-        removeStyle(children[i], ['animation'])
+        if (!keepLastAnimation) {
+          removeStyle(children[i], ['animation'])
+        }
       })()
     )
   }

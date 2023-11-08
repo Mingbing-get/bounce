@@ -2,7 +2,7 @@ import { BounceDomOption } from './type'
 import { sleep, addStyle, removeStyle } from '../utils'
 
 export default async function bounceDom(dom: HTMLElement, option: BounceDomOption) {
-  const { animations, delay } = option
+  const { animations, delay, keepLastAnimation } = option
 
   if (delay) {
     await sleep(delay)
@@ -19,5 +19,7 @@ export default async function bounceDom(dom: HTMLElement, option: BounceDomOptio
     await sleep(animation.duration)
   }
 
-  removeStyle(dom, ['animation'])
+  if (!keepLastAnimation) {
+    removeStyle(dom, ['animation'])
+  }
 }

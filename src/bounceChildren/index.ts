@@ -2,7 +2,7 @@ import { BounceChildrenOption } from './type'
 import { sleep, isFunction, addStyle, removeStyle } from '../utils'
 
 export default async function BounceChildren(dom: HTMLElement, option: BounceChildrenOption) {
-  const { animations, delay } = option
+  const { animations, delay, keepLastAnimation } = option
 
   if (delay) {
     await sleep(delay)
@@ -26,7 +26,9 @@ export default async function BounceChildren(dom: HTMLElement, option: BounceChi
           await sleep(animation.duration)
         }
 
-        removeStyle(children[i], ['animation'])
+        if (!keepLastAnimation) {
+          removeStyle(children[i], ['animation'])
+        }
       })()
     )
   }
