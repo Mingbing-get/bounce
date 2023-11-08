@@ -1,5 +1,5 @@
 {
-  "name": "bouncejs",
+  "name": "bounce-animation",
   "version": "0.0.1",
   "description": "一个流式的css动画库",
   "main": "./index.umd.js",
