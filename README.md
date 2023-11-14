@@ -80,6 +80,7 @@ interface BounceManager {
 ```js
 // bounceText // 控制dom下的文本做指定动画
 // bounceDom // 控制dom做指定动画
+// bounceDomList // 控制一组dom做指定的动画
 // bounceChildren // 控制dom下的所有子节点做指定动画
 // bounceQuerySelector // 控制指定选择选中的节点所指定动画
 // 除了以上内置函数以外，还可以自定义函数，将函数放入bounceManager的fn中即可被其控制

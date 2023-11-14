@@ -5,7 +5,7 @@ export default function bounceTextExample() {
   const dom = document.createElement('div')
 
   dom.innerText = 'test dance text'
-  dom.setAttribute('style', 'font-size: 30px; color: #e69; text-shadow: 4px 0 4px red; --bounce-translate-x: 100px;')
+  dom.setAttribute('style', 'font-size: 30px; color: #e69; text-shadow: 4px 0 4px red; --bounce-translate-y: 20px;')
 
   bounceManager.append({
     trigger: 'click',
@@ -19,8 +19,8 @@ export default function bounceTextExample() {
             executeSpace: 200,
             animations: [
               {
-                duration: 400,
-                functionName: 'ease-in',
+                duration: 1000,
+                timingFunction: 'ease-in',
                 name: 'bounce-top-to-location',
               },
               {

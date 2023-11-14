@@ -1,7 +1,7 @@
 {
   "name": "bounce-animation",
-  "version": "0.0.3",
-  "description": "一个流式的css动画库",
+  "version": "0.0.4",
+  "description": "一个流式的动画库",
   "main": "./index.umd.js",
   "module": "./index.esm.js",
   "types": "./types/index.d.ts",

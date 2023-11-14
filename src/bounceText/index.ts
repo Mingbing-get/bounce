@@ -1,6 +1,6 @@
 import { BounceTextOptions } from './type'
 import { BounceAnimation } from '../type'
-import { sleep } from '../utils'
+import { sleep, animationToString } from '../utils'
 
 export default async function bounceText(dom: HTMLElement, option: BounceTextOptions) {
   const { executeSpace = 100, animations, delay } = option
@@ -10,7 +10,7 @@ export default async function bounceText(dom: HTMLElement, option: BounceTextOpt
   }
 
   const text = dom.innerText
-  dom.innerText = ''
+  dom.innerHTML = `<span style="height: 100%; width: 0; display: inline-block;"></span>`
   const textList = splitTextMergeSpace(text)
 
   const promiseList: Promise<any>[] = []
@@ -51,7 +51,7 @@ async function executeSingleWord(w: string, delay: number, animations: BounceAni
       await sleep(animation.delay)
     }
 
-    span.setAttribute('style', `animation: ${animation.name} ${animation.duration / 1000}s ${animation.functionName || 'linear'}; display: inline-block;`)
+    span.setAttribute('style', `animation: ${animationToString(animation)}; display: inline-block;`)
     await sleep(animation.duration)
   }
 }

@@ -1,5 +1,5 @@
 import { BounceDomOption } from './type'
-import { sleep, addStyle, removeStyle } from '../utils'
+import { sleep, addStyle, removeStyle, animationToString } from '../utils'
 
 export default async function bounceDom(dom: HTMLElement, option: BounceDomOption) {
   const { animations, delay, keepLastAnimation } = option
@@ -14,7 +14,7 @@ export default async function bounceDom(dom: HTMLElement, option: BounceDomOptio
     }
 
     addStyle(dom, {
-      animation: `${animation.name} ${animation.duration / 1000}s ${animation.functionName || 'linear'}`,
+      animation: animationToString(animation),
     })
     await sleep(animation.duration)
   }

@@ -1,4 +1,4 @@
-import { PartialCSSStyle } from './type'
+import { PartialCSSStyle, BounceAnimation } from './type'
 
 export function sleep(time: number) {
   return new Promise((resolve) => {
@@ -52,4 +52,26 @@ export function styleObjectToStyleString(styleObject: PartialCSSStyle) {
 
 export function isFunction(v: any): v is Function {
   return typeof v === 'function'
+}
+
+export function animationToString(animation: BounceAnimation) {
+  const animationPros: string[] = [animation.name, `${animation.duration / 1000}s`, animation.timingFunction || 'linear']
+
+  if (animation.delay) {
+    animationPros.push(`${animation.delay / 1000}s`)
+  }
+
+  if (animation.iterationCount) {
+    animationPros.push(`${animation.iterationCount}`)
+  }
+
+  if (animation.direction) {
+    animationPros.push(animation.direction)
+  }
+
+  if (animation.fillMode) {
+    animationPros.push(animation.fillMode)
+  }
+
+  return animationPros.join(' ')
 }
